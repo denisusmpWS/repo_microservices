@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: demoAppContasisTemplate
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bd_prueba
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+    tomcat:
+      test-while-idle: true
+      validation-query: SELECT 1
+  mvc:
+    view:
+      prefix: /WEB-INF/view/
+      suffix: .jsp
+  freemarker:
+    enabled: false
+server:
+  port: 2234
+  
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7777/eureka/
+   

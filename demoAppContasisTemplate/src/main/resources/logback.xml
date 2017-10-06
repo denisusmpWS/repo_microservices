@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<Pattern>%d{HH:mm:ss.SSS} >> %-3relative [%thread] %-5level	%logger{25} - %msg %n</Pattern>
+		</encoder>
+	</appender>
+ 	<!-- LOG ARRANCE DE SPRINT BOOT -->
+	<appender name="rollingFileAppender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>D:/logs/logback.log</File>
+ 		<!-- ARCHIVO LOG. QUE GRABA CADA CADA MINUTO CON 10 MINUTOS DE HISTORIA-->
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>D:/logs/logback-%d{yyyy-MM-dd---HH-mm}.log</FileNamePattern>
+			<maxHistory>10</maxHistory>
+		</rollingPolicy>
+ 
+		<encoder>
+			<Pattern>%d{HH:mm:ss} [%thread] %-5level %logger - %msg %n</Pattern>
+		</encoder>
+	</appender>
+ 
+	<logger name="com.jdbc.template.app.demoAppContasisTemplate.rest" level="DEBUG"
+		additivity="false">
+		<appender-ref ref="consoleAppender" />
+		<appender-ref ref="rollingFileAppender" />
+	</logger>
+ 
+ </configuration>
